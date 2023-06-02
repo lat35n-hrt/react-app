@@ -19,6 +19,15 @@ class App extends React.Component {
   }
 
   render() {
+    //const { details } = this.state; // Destructure details from state
+
+    const { details } = this.state;
+
+    // Log employee details to the console
+    details.forEach((output) => {
+      console.log(output.employee);
+    });
+
     return (
       <div>
         <header> Data Generated from Django </header>
