@@ -73,3 +73,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### original tutorial
 https://www.youtube.com/watch?v=fBA-jaWab9k&ab_channel=BekBrace
+
+### To run the React server, you can use the following command
+npm start
+
+### You can then access your React application in a web browser at the specified URL,usually 
+http://localhost:3000.
