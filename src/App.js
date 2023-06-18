@@ -15,12 +15,16 @@ class App extends React.Component {
           details: data
         });
       })
-      .catch(err => { })
+
+      .catch(err => {
+        console.error('Error fetching data:', err);
+      })
+    
   }
 
   render() {
-    //const { details } = this.state; // Destructure details from state
 
+    // Destructure details from state 
     const { details } = this.state;
 
     // Log employee details to the console
