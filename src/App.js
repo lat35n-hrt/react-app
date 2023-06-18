@@ -3,7 +3,10 @@ import React from 'react';
 
 class App extends React.Component {
 
-  state = {details: [],}
+  state = {
+    details: [],
+    error: null // Add error state to store the error message
+  };
 
   componentDidMount(){
 
@@ -12,20 +15,24 @@ class App extends React.Component {
       .then(res => {
         data = res.data;
         this.setState({
-          details: data
+          details: data,
+          error: null // Clear the error state if the request is successful
         });
       })
 
       .catch(err => {
         console.error('Error fetching data:', err);
-      })
-    
+        this.setState({
+          details: [],
+          error: 'Error fetching data. Please make sure the Django server is running.' // Set the error message
+        });
+      })      
   }
 
   render() {
 
     // Destructure details from state 
-    const { details } = this.state;
+    const { details, error } = this.state;
 
     // Log employee details to the console
     details.forEach((output) => {
@@ -36,14 +43,18 @@ class App extends React.Component {
       <div>
         <header> Data Generated from Django </header>
         <hr></hr>
-        {this.state.details.map((output, id) => (
-          <div key={id}>
-            <div>
-              <h2>{output.employee}</h2>
-              <h3>{output.department}</h3>
+        {error ? (
+          <div>{error}</div> // Display the error message
+        ) : (
+          details.map((output, id) => (
+            <div key={id}>
+              <div>
+                <h2>{output.employee}</h2>
+                <h3>{output.department}</h3>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     );
   }
