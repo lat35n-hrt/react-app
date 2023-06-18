@@ -46,14 +46,23 @@ class App extends React.Component {
         {error ? (
           <div>{error}</div> // Display the error message
         ) : (
-          details.map((output, id) => (
-            <div key={id}>
-              <div>
-                <h2>{output.employee}</h2>
-                <h3>{output.department}</h3>
-              </div>
-            </div>
-          ))
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Employee</th>
+                <th>Department</th>
+              </tr>
+            </thead>
+            <tbody>
+              {details.map((output, id) => (
+                <tr key={id}>
+                  <td>{output.employee}</td>
+                  <td>{output.department}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
         )}
       </div>
     );
