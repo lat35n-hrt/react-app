@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'custom.css'
 
 class App extends React.Component {
 
@@ -42,23 +43,30 @@ class App extends React.Component {
 
     return (
       <div className="container">
-        <header className="mt-3 mb-4"> 
+        {/* <header className="mt-3 mb-4"> 
           <h1>Data Generated from Django</h1> 
+        </header> */}
+
+        <header style={{ backgroundColor: '#F36824', color: '#FFFFFF', padding: '20px', marginBottom: '20px', fontFamily: 'jazzy-font' }}>
+          Data Generated from Django
         </header>
+
         <hr></hr>
         {error ? (
-          <div>{error}</div> // Display the error message
+          <div style={{ backgroundColor: '#343A40', color: '#FFFFFF', padding: '10px', marginBottom: '20px' }}>
+            {error}
+          </div> // Display the error message
         ) : (
           <table className="table">
             <thead>
               <tr>
-                <th>Employee</th>
-                <th>Department</th>
+                <th style={{ color: '#F36824' }}>Employee</th>
+                <th style={{ color: '#F36824' }}>Department</th>
               </tr>
             </thead>
             <tbody>
               {details.map((output, id) => (
-                <tr key={id}>
+                <tr key={id} style={{ backgroundColor: id % 2 === 0 ? '#FFFFFF' : '#F8F9FA' }}>
                   <td>{output.employee}</td>
                   <td>{output.department}</td>
                 </tr>
