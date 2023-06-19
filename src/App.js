@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
 
 class App extends React.Component {
 
@@ -40,8 +41,10 @@ class App extends React.Component {
     });
 
     return (
-      <div>
-        <header> Data Generated from Django </header>
+      <div className="container">
+        <header className="mt-3 mb-4"> 
+          <h1>Data Generated from Django</h1> 
+        </header>
         <hr></hr>
         {error ? (
           <div>{error}</div> // Display the error message
