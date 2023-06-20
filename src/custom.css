@@ -1,0 +1,12 @@
+.custom-table {
+    background-color: #FFFFFF;
+    border: 2px solid #F36824;
+  }
+  
+.custom-row-even {
+    background-color: #FFFFFF !important;
+  }
+  
+.custom-row-odd {
+    background-color: #F8F9FA !important;
+  }
